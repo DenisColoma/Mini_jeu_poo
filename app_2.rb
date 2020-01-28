@@ -23,6 +23,7 @@ enemies = [enemy1, enemy2]
 
 while fighter.life_points > 0 && enemy1.life_points > 0 || enemy2.life_points > 0
 	fighter.show_state
+	puts "\n"
 	puts "What do you wants to do ?"
 	puts "\n"
 	puts "Press w - looking for better weappon"
@@ -48,24 +49,28 @@ while fighter.life_points > 0 && enemy1.life_points > 0 || enemy2.life_points > 
 				fighter.attacks(enemy1)
 			end
 		when "2"
-			if enemy2.life_point > 0
+			if enemy2.life_points > 0
 				fighter.attacks(enemy2)
 			end
 	end
 	puts "\n"
-	if fighter.life_points > 0
 		puts "Your enemy is attacking"
 
-		enemies.each do |enemies|
-			enemies.attacks(fighter)
-		end
-	else
-		fighter.life_points = 0
-		break
+		enemies.each do |enemy|
+			if fighter.life_points > 0
+				enemy.attacks(fighter)
+			end
 	end
-
 
 end
 
+puts "Game Over"
+puts "\n"
+
+if fighter.life_points > 0
+	puts "GG ! You are the winner"
+else
+	puts "You Lose..."
+end
 
 binding.pry
