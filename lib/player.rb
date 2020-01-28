@@ -19,13 +19,13 @@ class Player		#initialisation de la classe player
 	end
 
 	def attacks(victim)		#permet de dire qui attaque qui
-		puts "the gamer #{name} attack #{victim.name}"
+		puts "The gamer #{name} attack #{victim.name}"
 		dmg = compute_damage
 		puts "#{name} give #{dmg} damage to #{victim.name}"
 		victim.gets_damage(dmg)
 	end
 
-	def compute_damage
+	def compute_damage		#permet de faire un choix aléatoire entre 1 et 6 qui serotn utilisé en attack dans le mathode attacks
 		return rand(1..6)
 	end
 
